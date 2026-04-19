@@ -10,7 +10,7 @@ const projectsData = [
     name: 'B2B Automation Workflow',
     description: 'Automated business-to-business workflow pipeline.',
     github: 'https://github.com/createwithathuldas/B2B-Automation',
-    website: 'https://your-live-link.com', 
+    website: '', 
     image: `${BASE_IMAGE_URL}B2B-Automation_Workflow.png`
   },
   {
@@ -26,7 +26,7 @@ const projectsData = [
     name: 'MoonApp',
     description: 'A modern web application tracking lunar phases or crypto.',
     github: 'https://github.com/createwithathuldas/MoonApp',
-    website: 'https://moonapp-demo.com',
+    website: '',
     image: `${BASE_IMAGE_URL}MoonApp.png`
   },
   {
@@ -42,7 +42,7 @@ const projectsData = [
     name: 'Bias Buster',
     description: 'AI tool designed to detect and mitigate data bias.',
     github: 'https://github.com/createwithathuldas/Bias-Buster',
-    website: 'https://biasbuster.app',
+    website: '',
     image: `${BASE_IMAGE_URL}bias_buster_masterImage.png`
   },
   {
@@ -50,7 +50,7 @@ const projectsData = [
     name: 'Data Visualizer',
     description: 'Interactive charts and data visualization platform.',
     github: 'https://github.com/createwithathuldas/DataVisual',
-    website: 'https://datavisual.io',
+    website: '',
     image: `${BASE_IMAGE_URL}dataVisual.webp`
   },
   {
@@ -60,6 +60,14 @@ const projectsData = [
     github: 'https://github.com/createwithathuldas/Sugared',
     website: '',
     image: `${BASE_IMAGE_URL}sugared.jpg`
+  },
+  {
+    id: 'ryukyu',
+    name: 'Ryukyu Karate class Website',
+    description: 'Educational website for a karate class, featuring schedules, resources, and contact info.',
+    github: 'https://github.com/createwithathuldas/ryukyuweb',
+    website: 'https://ryukyukarateinternational.com',
+    image: `${BASE_IMAGE_URL}ryukyuweb.png`
   }
 ];
 

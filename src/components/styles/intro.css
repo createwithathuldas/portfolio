@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Mileast';
+    src: url('../fonts/Mileast.otf') format('opentype');
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#navVectLogo {
+    width: 45px;
+    height: auto;
+    filter: grayscale(100%) contrast(300%); 
+    mix-blend-mode: screen; 
+    transition: transform 0.3s ease;
+}
+
+.left:hover #navVectLogo {
+    transform: scale(1.05);
+}
+
+.left h1 {
+    font-family: 'Mileast', serif;
+    font-size: 22px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.right {
+    display: flex;
+    gap: 8px;
+    padding: 0;
+}
+
+.right a {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: rgb(170, 170, 170);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 24px;
+    transition: color 0.4s ease, background-color 0.4s ease, transform 0.4s ease;
+    opacity: 0;
+    animation: smoothSlideIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.right a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.7s ease-in-out;
+    z-index: -1;
+}
+
+.right a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.right a:hover::before {
+    left: 150%;
+}
+
+.right a:nth-child(1) { animation-delay: 0.1s; }
+.right a:nth-child(2) { animation-delay: 0.25s; }
+.right a:nth-child(3) { animation-delay: 0.4s; }
+.right a:nth-child(4) { animation-delay: 0.55s; }
+
+@keyframes smoothSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 20px;
+    }
+
+    .left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .right a {
+        font-size: 13px;
+        padding: 10px 16px;
+        letter-spacing: 1.5px;
+        background: rgba(255, 255, 255, 0.05); 
+    }
+}

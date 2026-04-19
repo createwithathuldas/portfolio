@@ -1,0 +1,192 @@
+/* 1. Font Setup */
+@font-face {
+    font-family: 'VictoryStriker';
+    src: url('../fonts/Victory-Striker.otf') format('opentype');
+}
+
+/* 2. Main Layout Setup */
+/* 2. Main Layout Setup */
+.hero-section {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* FIX 1: Subtract the approximate height of your navbar (e.g., 80px) */
+    height: calc(100vh - 80px); 
+    
+    width: 100%;       
+    background-color: #060B19; 
+    color: white;
+    overflow: hidden; 
+}
+#title{
+    font-family: 'monospace';
+    font-weight: 100;
+    letter-spacing: 8px;
+    color: #e0e0e0;
+}
+#liquid-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Puts it ABOVE the video (0) but BELOW the text (10) */
+    
+    /* CRITICAL: Allows mouse clicks to pass through to your text/links below */
+    pointer-events: none; 
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    
+    /* FIX 2: Anchor the video closer to the top to keep the face in frame */
+    object-position: center 15%; /* You can tweak this percentage (0% is the very top) */
+    
+    z-index: 0; 
+    opacity: 0.6; 
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 10; /* Ensures your text and image stay on top of the video */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* We can use padding here if you still want to offset the text slightly */
+    margin-top: -10vh; 
+}
+
+/* ... Keep all your other CSS exactly the same ... */
+
+/* 3. Typography */
+.hi-block {
+    position: relative; /* Crucial: Allows the monkey to be absolutely positioned relative to this block */
+    display: flex;
+    align-items: flex-end;
+}
+
+.huge-text {
+    font-family: 'VictoryStriker', sans-serif;
+    font-size: 250px; 
+    line-height: 1; 
+    margin: 0;
+    padding: 0;
+}
+
+.name-text {
+    font-family: 'VictoryStriker', sans-serif;
+    font-size: 70px; 
+    margin: 0; /* FIX 2: Removed negative margin */
+    padding-top: 5px; /* Added a tiny, safe gap */
+    letter-spacing: 2px;
+}
+
+/* 4. Roles Section */
+.divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 15px 0;
+}
+
+.roles-list {
+    align-self: center; 
+    text-align: center;
+}
+
+.roles-list p {
+    font-family: monospace; 
+    font-size: 14px;
+    letter-spacing: 8px; 
+    margin: 8px 0;
+    color: #e0e0e0;
+}
+
+/* 5. The Monkey Layers & Positioning */
+.monkey-wrapper {
+    position: absolute;
+    bottom: -40px;
+    right: -180px;
+    width: 220px;
+    height: 280px;
+}
+
+.monkey-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Layer order */
+.tail { z-index: 1; }
+.body { z-index: 2; }
+.boot { z-index: 3; }
+
+/* 6. Animations */
+.tail {
+    /* Adjust these X Y percentages based on where the tail connects to the body in your PNG */
+    transform-origin: 30% 70%; 
+    animation: tailSway 4s ease-in-out infinite;
+}
+
+.boot {
+    /* Adjust these X Y percentages based on where the knee joint is in your PNG */
+    transform-origin: 50% 40%; 
+    animation: footTap 2.5s ease-in-out infinite;
+}
+
+@keyframes tailSway {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(-8deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes footTap {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* 7. Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* .hero-section{
+    margin-left: 1vw;
+    margin-top: 8vh;
+    } */
+    .huge-text { 
+        font-size: 140px; 
+    }
+    
+    .name-text { 
+        font-size: 40px; 
+        margin-top: -5px;
+    }
+    
+    .monkey-wrapper {
+        width: 130px;
+        height: 160px;
+        right: -90px;
+        bottom: -25px;
+    }
+    
+    .roles-list p {
+        font-size: 11px;
+        letter-spacing: 5px;
+    }
+    #title{
+    font-family: 'monospace';
+    font-weight: 100;
+    letter-spacing: 6px;
+    font-size: large;
+}
+}

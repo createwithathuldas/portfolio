@@ -1,0 +1,167 @@
+/* Container adjustments to remove extreme side gaps */
+.skills-section {
+  width: 100%;
+  padding-inline: 0px;
+  padding-block: 24px;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
+}
+
+/* Single row layout on Desktop */
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.chart-wrapper {
+  flex: 0 0 40%; /* Chart takes 40% of the width */
+  min-width: 300px;
+  background: rgba(25, 25, 30, 0.6); /* Subtle card background */
+  border-radius: 16px;
+  padding: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-wrapper {
+  flex: 0 0 58%; /* Cards take up the remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+}
+
+/* Grid for the feature bars */
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns inside the right panel */
+  gap: 20px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.skill-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  color: #f0f0f0;
+}
+
+.ratings {
+  font-size: 0.75rem;
+  color: #888;
+  font-family: sans-serif;
+}
+
+.score-text {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 8px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.score-text .highlight {
+  color: #fff;
+  font-size: 1rem;
+}
+
+/* Progress Bar Tracks */
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.secondary-track {
+  height: 6px;
+  margin-bottom: 0;
+}
+
+/* Animated Fills */
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.primary-fill {
+  background: linear-gradient(90deg, #6a11cb 0%, #a64dff 100%);
+}
+
+.secondary-fill {
+  background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+}
+
+/* Recharts Tooltip Customization */
+.custom-tooltip {
+  background: rgba(15, 15, 20, 0.95);
+  border: 1px solid #a64dff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(166, 77, 255, 0.3);
+}
+
+.custom-tooltip p {
+  margin: 0;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+@media(max-width: 640px) {
+  .skills-section {
+    /* padding: 16px;   not 0 — zero looks broken */
+    padding-inline: 0px;
+    padding-block: 16px;
+  }
+
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    text-align: center;
+  }
+
+  .chart-wrapper {
+    min-width: 0;   /* safety */
+  }
+}
